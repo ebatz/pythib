@@ -140,7 +140,7 @@ class FastBoxQuantization {
 };
 
 
-PYBIND11_MODULE(KMat, m) {
+PYBIND11_MODULE(BMat, m) {
   py::class_<KMatrix>(m, "KMatrix")
     .def(py::init<const KMatrix::calcFuncType&, const KMatrix::zeroFuncType&>())
     .def("calculate", &KMatrix::calculate)
