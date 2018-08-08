@@ -18,4 +18,4 @@ The following libraries need to be accessible:
 
 Only manual installation is available at this point. Adjust the paths to pybind11 as well as TwoHadronsInBox as necessary in build.sh. The build script then produces a Python module that can be imported and used by any Python3 code.
 
-**Note**: The TwoHadronsInBox library is linked dynamically when the Python module is imported. Therefore you need to make sure that `libBox.so` created by TwoHadronsInBox is accessible to the linker by putting it into one of the standard search paths, or adding the path to the shared library to LD\_LIBRARY\_PATH.
+**Note**: The TwoHadronsInBox library is linked dynamically when the Python module is imported. Therefore you need to make sure that `libBox.so` created by TwoHadronsInBox is accessible to the linker either by putting it into one of the standard search paths, or by adding the path to the shared library to LD\_LIBRARY\_PATH.
