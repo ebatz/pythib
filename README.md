@@ -10,6 +10,7 @@ This package contains Python3 bindings for the [TwoHadronsInBox](https://github.
 The following libraries need to be accessible:
 
 * [TwoHadronsInBox](https://github.com/ebatz/TwoHadronsInBox/tree/qSqDependence) built as a shared library using `make lib`
+
    **Note**: Currently the particular branch of TwoHadronsInBox linked above has to be used until those changes have been merged back into the master branch. The branch in question facilitates K matrix parametrizations that need access to both the center-of-mass energy and scattering momentum. This functionality is not currently part of the master branch.
 * [Pybind11](https://github.com/pybind/pybind11)
 
