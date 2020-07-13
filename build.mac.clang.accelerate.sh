@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #PYBIND_PATH=/path/to/pybind11/
-TWOHAD_PATH=/Users/walkloud/work/research/c51/x_files/code/TwoHadronsInBox
+TWOHAD_PATH=`pwd | sed "s/pythib/TwoHadronsInBox/"`
 
 mac_fix="-undefined dynamic_lookup"
 mac_lapack="-framework Accelerate"
@@ -16,3 +16,8 @@ echo "fixing libpath in BMat.cpython-36m-darwin.so"
 echo "install_name_tool -change libBox.so $TWOHAD_PATH/build/libBox.so BMat.cpython-36m-darwin.so"
 
 install_name_tool -change libBox.so $TWOHAD_PATH/build/libBox.so BMat.cpython-36m-darwin.so
+
+echo ""
+echo "Check library"
+echo "otool -L BMat.cpython-36m-darwin.so"
+otool -L BMat.cpython-36m-darwin.so
