@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 #PYBIND_PATH=/path/to/pybind11/
+# NOTE - we assume that the src code for pythib is at the same level in your
+#        path as TwoHadronsInBox
 TWOHAD_PATH=`pwd | sed "s/pythib/TwoHadronsInBox/"`
 
 mac_fix="-undefined dynamic_lookup"
