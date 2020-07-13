@@ -14,12 +14,15 @@ c++ -O3 -Wall -shared -std=c++11 $mac_fix  -fPIC \
     -L${TWOHAD_PATH}/build/ BMatrix.cc \
     -o BMat`python3-config --extension-suffix` -lBox $mac_lapack
 
-echo "fixing libpath in BMat.cpython-36m-darwin.so"
-echo "install_name_tool -change libBox.so $TWOHAD_PATH/build/libBox.so BMat.cpython-36m-darwin.so"
+BMat=`ls -lrt | grep BMat | tail -1 | awk '{print $NF}'`
+echo "BMat $BMat"
 
-install_name_tool -change libBox.so $TWOHAD_PATH/build/libBox.so BMat.cpython-36m-darwin.so
+echo "fixing libpath in $BMat"
+echo "install_name_tool -change libBox.so $TWOHAD_PATH/build/libBox.so $BMat"
+
+install_name_tool -change libBox.so $TWOHAD_PATH/build/libBox.so $BMat
 
 echo ""
 echo "Check library"
-echo "otool -L BMat.cpython-36m-darwin.so"
-otool -L BMat.cpython-36m-darwin.so
+echo "otool -L $BMat"
+otool -L $BMat
