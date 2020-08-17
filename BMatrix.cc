@@ -13,7 +13,7 @@ namespace py = pybind11;
 
   /* A valid K matrix parametrization requires two functions which behave
    * according to
-   * 
+   *
    *  double calculate(uint Jtimestwo,
    *                   uint Lp, uint Sptimestwo, uint chanp,
    *                   uint L, uint Stimestwo, uint chan,
@@ -167,6 +167,12 @@ PYBIND11_MODULE(BMat, m) {
 		    {
 		      ComplexHermitianMatrix res;
 		      self.getBoxMatrixFromEcm(Ecm_over_mref, res);
+		      return res(0,0);
+		    })
+    .def("getBoxMatrixFromElab", [](BoxQuantization& self, double Elab_over_mref)
+		    {
+		      ComplexHermitianMatrix res;
+		      self.getBoxMatrixFromElab(Elab_over_mref, res);
 		      return res(0,0);
 		    })
     .def("getOmegaFromEcm", &BoxQuantization::getOmegaFromEcm)
