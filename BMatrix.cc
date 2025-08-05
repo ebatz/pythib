@@ -177,6 +177,8 @@ PYBIND11_MODULE(BMat, m) {
 		    })
     .def("getOmegaFromEcm", &BoxQuantization::getOmegaFromEcm)
     .def("getQcmSqFunctions", &BoxQuantization::getQcmSqFunctions)
+    .def("getEigenvaluesFromElab", &BoxQuantization::getEigenvaluesFromElab)
+    .def("getEigenvaluesFromEcm", &BoxQuantization::getEigenvaluesFromEcm)
     .def("getBoxMatrixFromEcmAndSHMasses", [](BoxQuantization& self, double muVal, double Ecm_over_mref, double refMass, const std::vector<std::pair<double, double>>& shMasses) {
 		    self.setRefMassL(refMass);
 
